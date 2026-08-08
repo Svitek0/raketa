@@ -51,7 +51,9 @@ def simulate(thrust, dry_mass, fuel_mass, burn_time, angle, Cd, area, drag_on=Tr
         ax = (thrust_x - drag_x) / mass
         ay = (thrust_y - drag_y) / mass - g
         a_total = np.sqrt(ax**2 + ay**2)
-        gforce = a_total / g0
+        ax_spec = ( thrust_x - drag_x ) / mass
+        ay_spec = ( thrust_y - drag_y ) / mass
+        gforce = np . sqrt ( ax_spec** 2 + ay_spec** 2 ) / g0
         
         vx = vx + ax * dt
         vy = vy + ay * dt
